@@ -1,0 +1,18 @@
+language: python
+
+python:
+  - 3.6.4
+
+cache:
+  pip: true
+  directories:
+    - ~/.virtualenvs
+
+install:
+  - pip install -U pip wheel
+  - pip install setuptools==24.0.3
+  - pip install pipenv==9.0.3
+  - pipenv install -d
+
+script:
+  - pytest -vvv --cov=.
