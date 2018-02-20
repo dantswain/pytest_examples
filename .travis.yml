@@ -16,3 +16,4 @@ install:
 
 script:
   - pytest -vvv --cov=.
+  - pylint *.py -r n -f colorized
