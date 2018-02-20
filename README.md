@@ -1,5 +1,7 @@
 # Pytest Examples
 
+[![Build Status](https://travis-ci.org/dantswain/pytest_examples.svg?branch=master)](https://travis-ci.org/dantswain/pytest_examples)
+
 These are some examples of using pytest that I put together for a presentation.
 
 ## Setup
