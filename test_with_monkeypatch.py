@@ -11,7 +11,13 @@ from dev_null_client import DevNull
 
 DummyResponse = namedtuple('DummyResponse', ['status'])
 
+# pylint: disable=too-few-public-methods
+
 class DummyConnection(object):
+    '''
+    A standin for HTTPSConnection used when testing DevNull
+    '''
+
     def __init__(self):
         self.last_method = None
         self.last_path = None
@@ -19,12 +25,21 @@ class DummyConnection(object):
         self.host = None
 
     def request(self, method, path, params):
+        '''
+        patches the request method and captures the parameters
+        '''
         self.last_method = method
         self.last_path = path
         self.last_params = params
 
-    def getresponse(self):
+    @staticmethod
+    def getresponse():
+        '''
+        patches the getresponse method and returns a 200 status code
+        '''
         return DummyResponse(status=200)
+
+# pylint: disable=missing-docstring,redefined-outer-name
 
 @pytest.fixture
 def dummy_conn(monkeypatch):

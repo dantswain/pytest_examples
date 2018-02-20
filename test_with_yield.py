@@ -6,6 +6,8 @@ import os
 import shutil
 import pytest
 
+# pylint: disable=missing-docstring,redefined-outer-name
+
 @pytest.fixture(scope='module')
 def output_dir():
     return 'test-output'

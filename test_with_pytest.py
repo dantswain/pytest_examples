@@ -4,6 +4,8 @@ pytest example
 
 import pytest
 
+# pylint: disable=missing-docstring
+
 def test_upper():
     assert 'foo'.upper() == 'FOO'
 
@@ -12,7 +14,7 @@ def test_isupper():
     assert not 'Foo'.isupper()
 
 def test_split():
-    s = 'hello world'
-    assert s.split() == ['hello', 'world']
+    a_string = 'hello world'
+    assert a_string.split() == ['hello', 'world']
     with pytest.raises(TypeError):
-        s.split(2)
+        a_string.split(2)
